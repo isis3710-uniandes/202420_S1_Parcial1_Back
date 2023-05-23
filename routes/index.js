@@ -76,18 +76,19 @@ router.post("/login", function (req, res, next) {
 
 /* Get all cafes */
 router.get("/cafes", function (req, res, next) {
-  const filtered = cafes.map((c) => {
-    return { id: c.id, nombre: c.nombre };
-  });
-  res.send(filtered);
+  res.send(
+    cafes.map((c) => {
+      return { id: c.id, nombre: c.nombre };
+    })
+  );
 });
 
 /* Get one cafe */
 router.get("/cafes/:cafeId", function (req, res, next) {
-  const filtered = cafes.find((c) => {
+  const cafe = cafes.find((c) => {
     return c.id == req.params.cafeId;
   });
-  if (!filtered) {
+  if (!cafe) {
     return res.status(404).send({
       status: "error",
       message: "The coffe with the given id was not found.",
