@@ -84,9 +84,15 @@ router.get("/cafes", function (req, res, next) {
 
 /* Get one cafe */
 router.get("/cafes/:cafeId", function (req, res, next) {
-  const filtered = cafes.filter((c) => {
+  const filtered = cafes.find((c) => {
     return c.id == req.params.cafeId;
   });
+  if (!filtered) {
+    return res.status(404).send({
+      status: "error",
+      message: "The coffe with the given id was not found.",
+    });
+  }
   res.send(filtered);
 });
 
