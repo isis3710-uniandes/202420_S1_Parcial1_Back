@@ -2,7 +2,7 @@
 
 Para ejecutar este back debe clonar el repositorio, ingresar a la carpeta del proyecto e instalar dependencias con el comando `npm install`. Luego, ejecute el comando `npm start`. Esto iniciará un servidor web que escucha peticiones en el puerto 3001.
 
-Si hace una peticiòn GET a la ruta por defecto (http://localhost:3001) deberá recibir un _status code 200_ con el siguiente mensaje:
+Si hace una petición de tipo GET a la ruta por defecto (http://localhost:3001) deberá recibir un _status code 200_ con el siguiente mensaje:
 
 ```JSON
 {
@@ -14,9 +14,9 @@ Si hace una peticiòn GET a la ruta por defecto (http://localhost:3001) deberá 
 
 Este backend proporciona tres endpoints:
 
-## POST http://localhost:3001/login
+## POST /login
 
-Este endpoint recibe en el cuerpo de la petición un objeto con dos atributos: login y password. Si las credenciales proporcionadas son correctas retornará un _status code 200_ con el siguiente mensaje:
+Este endpoint recibe en el cuerpo de la petición un objeto con dos atributos: _login_ y _password_. Si las credenciales proporcionadas son correctas retornará un _status code 200_ con el siguiente mensaje:
 
 ```JSON
 {
@@ -41,7 +41,7 @@ Para efectos de prueba use las siguientes credenciales para una autenticación c
 }
 ```
 
-## GET http://localhost:3001/cafes
+## GET /cafes
 
 Este endpoint retorna un listado de cafés. Este es un ejemplo de la respuesta:
 
@@ -62,7 +62,7 @@ Este endpoint retorna un listado de cafés. Este es un ejemplo de la respuesta:
 ]
 ```
 
-## GET http://localhost:3001/cafes/1
+## GET /cafes/1
 
 Este endpoint retorna el café con el id 1. Este es un ejemplo de la respuesta:
 
@@ -79,7 +79,7 @@ Este endpoint retorna el café con el id 1. Este es un ejemplo de la respuesta:
 }
 ```
 
-Si el café con el id proporcionado no existe retornará un status code 404 con la siguiente respuesta:
+Si el café con el id proporcionado no existe retornará un _status code 404_ con la siguiente respuesta:
 
 ```JSON
 {
