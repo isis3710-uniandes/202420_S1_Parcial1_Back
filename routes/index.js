@@ -70,8 +70,12 @@ const cafes = [
 ];
 
 /* Login */
+router.get("/", function (req, res, next) {
+  res.send({ status: "The backend is running" });
+});
+
+/* Login */
 router.post("/login", function (req, res, next) {
-  console.log(req.body);
   if (req.body.login === "admin" && req.body.password === "pass") {
     res.send({ status: "authenticated" });
   } else {

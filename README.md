@@ -2,6 +2,14 @@
 
 Para ejecutar este back debe clonar el repositorio, ingresar a la carpeta del proyecto e instalar dependencias con el comando `npm install`. Luego, ejecute el comando `npm start`. Esto iniciará un servidor web que escucha peticiones en el puerto 3001.
 
+Si consulta la ruta por defecto (http://localhost:3001) deberá recibir un status code 200 con el siguiente mensaje:
+
+```JSON
+{
+    "status": "The backend is running"
+}
+```
+
 # Endpoints
 
 Este backend proporciona tres endpoints:
