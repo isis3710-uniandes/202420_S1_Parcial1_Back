@@ -7,7 +7,8 @@ const cafes = [
     nombre: "Café Especial para tí",
     tipo: "Blend",
     region: "Angelópolis, Antioquia",
-    sabor: "Panela, Durazno, Caramelo",
+    notas: "Panela, Durazno, Caramelo",
+    fecha_cultivo: "2023-01-18",
     altura: 1920,
     imagen:
       "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202310/p2_v1/cafe-especial-para-ti-cafe-colombiano_720x.png?raw=true",
@@ -17,7 +18,8 @@ const cafes = [
     nombre: "Café Especial Navegante",
     tipo: "Café de Origen",
     region: "Guatapé, Antioquia",
-    sabor: "Cítrico, Naranja, Cacao",
+    notas: "Cítrico, Naranja, Cacao",
+    fecha_cultivo: "2023-02-10",
     altura: 1800,
     imagen:
       "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202310/p2_v1/cafe-especial-navegante-cafe-colombiano-1_720x.png?raw=true",
@@ -27,7 +29,8 @@ const cafes = [
     nombre: "Café Especial El Poeta",
     tipo: "Blend",
     region: "Gómez Plata, Antioquia",
-    sabor: "Notas Dulces, Vino y Frutos Rojos",
+    notas: "Notas Dulces, Vino y Frutos Rojos",
+    fecha_cultivo: "2023-03-11",
     altura: 1800,
     imagen:
       "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202310/p2_v1/cafe-especial-poeta-cafe-colombiano_720x.png?raw=true",
@@ -37,7 +40,7 @@ const cafes = [
     nombre: "Café Especial Valentina",
     tipo: "Café de Origen",
     region: "Fredonia, Antioquia",
-    sabor: "Chocolate, Cáscara de limón, Nuez",
+    notas: "Chocolate, Cáscara de limón, Nuez",
     altura: 1700,
     imagen:
       "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202310/p2_v1/cafe-especial-valentina-cafe-colombiano_1_720x.png?raw=true",
@@ -47,7 +50,8 @@ const cafes = [
     nombre: "Café Especial Sombrero Vueltiao",
     tipo: "Café de Origen",
     region: "Amagá, Antioquia",
-    sabor: "Chocolate, Frutos secos, Frutos rojos, Caña de azúcar",
+    notas: "Chocolate, Frutos secos, Frutos rojos, Caña de azúcar",
+    fecha_cultivo: "2023-04-12",
     altura: 1450,
     imagen:
       "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202310/p2_v1/cafe-especal-sombrero-vueltiao-2-cafe-colombiano-f_720x.png?raw=true",
@@ -57,7 +61,8 @@ const cafes = [
     nombre: "Café Especial La Guacamaya",
     tipo: "Café de Origen",
     region: "Amagá, Antioquia",
-    sabor: "Chocolate, Frutos Secos, Frutos Rojos y Caña de Azúcar",
+    notas: "Chocolate, Frutos Secos, Frutos Rojos y Caña de Azúcar",
+    fecha_cultivo: "2023-05-13",
     altura: 1450,
     imagen:
       "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202310/p2_v1/cafe-especial-guacamayo2-cafe-colombiano-f_720x.png?raw=true",
@@ -78,7 +83,7 @@ router.post("/login", function (req, res, next) {
 router.get("/cafes", function (req, res, next) {
   res.send(
     cafes.map((c) => {
-      return { id: c.id, nombre: c.nombre };
+      return { id: c.id, nombre: c.nombre, tipo: c.tipo, region: c.region };
     })
   );
 });
@@ -94,7 +99,7 @@ router.get("/cafes/:cafeId", function (req, res, next) {
       message: "The coffe with the given id was not found.",
     });
   }
-  res.send(filtered);
+  res.send(cafe);
 });
 
 module.exports = router;
