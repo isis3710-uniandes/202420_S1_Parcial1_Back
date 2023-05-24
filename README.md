@@ -6,7 +6,8 @@ Si hace una petición de tipo GET a la ruta por defecto (http://localhost:3001) 
 
 ```JSON
 {
-    "status": "The backend is running"
+    "status": "Success",
+    "message": "The backend is running"
 }
 ```
 
@@ -20,7 +21,8 @@ Este endpoint recibe en el cuerpo de la petición un objeto con dos atributos: _
 
 ```JSON
 {
-    "status": "authenticated"
+    "status": "success",
+    "message": "The provided credentials are correct. User authenticated."
 }
 ```
 
@@ -28,7 +30,8 @@ Si las credenciales son incorrectas retornará un _status code 401_ con el sigui
 
 ```JSON
 {
-    "status": "error"
+    "status": "error",
+    "message": "The provided credentials are incorrect."
 }
 ```
 

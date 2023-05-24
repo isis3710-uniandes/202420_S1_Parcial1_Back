@@ -71,15 +71,23 @@ const cafes = [
 
 /* Default route */
 router.get("/", function (req, res, next) {
-  res.send({ status: "The backend is running" });
+  res.send({ status: "success", message: "The backend is running" });
 });
 
 /* Login */
 router.post("/login", function (req, res, next) {
   if (req.body.login === "admin" && req.body.password === "pass") {
-    res.send({ status: "authenticated" });
+    res.send({
+      status: "success",
+      message: "The provided credentials are correct. User authenticated.",
+    });
   } else {
-    res.status(401).send({ status: "error" });
+    res
+      .status(401)
+      .send({
+        status: "error",
+        message: "The provided credentials are incorrect.",
+      });
   }
 });
 
