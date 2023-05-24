@@ -62,9 +62,9 @@ Este endpoint retorna un listado de cafés. Este es un ejemplo de la respuesta:
 ]
 ```
 
-## GET /cafes/1
+## GET /cafes/{{cafe_id}}
 
-Este endpoint retorna el café con el id 1. Este es un ejemplo de la respuesta:
+Este endpoint retorna el café con el id pasado como parámetro en el _path_. Este es un ejemplo de la respuesta:
 
 ```JSON
 {
