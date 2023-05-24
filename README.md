@@ -1,6 +1,6 @@
 # Ejecución
 
-Para ejecutar este back debe clonar el repositorio, ingresar a la carpeta del proyecto (`cd 202310_Parcial2_Back`), instalar dependencias (`npm install`) e iniciar el servidor de desarrollo (`npm start`). Esto iniciará un servidor web que escucha peticiones en el puerto 3001.
+Para ejecutar este back debe clonar el repositorio, ingresar a la carpeta del proyecto (`cd 202310_Parcial2_Back`), instalar dependencias (`npm install`) e iniciar el servidor de desarrollo (`npm start`). Esto desplegará un servidor web que escucha peticiones en el puerto 3001.
 
 Si hace una petición de tipo GET a la ruta por defecto (http://localhost:3001) deberá recibir un _status code 200_ con el siguiente mensaje:
 
