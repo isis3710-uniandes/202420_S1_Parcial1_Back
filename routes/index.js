@@ -69,7 +69,7 @@ const cafes = [
   },
 ];
 
-/* Login */
+/* Default route */
 router.get("/", function (req, res, next) {
   res.send({ status: "The backend is running" });
 });
