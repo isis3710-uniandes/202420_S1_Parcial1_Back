@@ -6,7 +6,7 @@ Si hace una petición de tipo GET a la ruta por defecto (http://localhost:3001) 
 
 ```JSON
 {
-    "status": "Success",
+    "status": "success",
     "message": "The backend is running"
 }
 ```
