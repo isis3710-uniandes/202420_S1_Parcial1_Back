@@ -1,6 +1,6 @@
 # Ejecución
 
-Para ejecutar este back debe clonar el repositorio, ingresar a la carpeta del proyecto (`cd 202310_Parcial2_Back`), instalar dependencias (`npm install`) e iniciar el servidor de desarrollo (`npm start`). Esto desplegará un servidor web que escucha peticiones en el puerto 3001.
+Para ejecutar este back debe clonar el repositorio, ingresar a la carpeta del proyecto (`cd 202410_Parcial1_Back`), instalar dependencias (`npm install`) e iniciar el servidor de desarrollo (`npm start`). Esto desplegará un servidor web que escucha peticiones en el puerto 3001.
 
 Si hace una petición de tipo GET a la ruta por defecto (http://localhost:3001) deberá recibir un _status code 200_ con el siguiente mensaje:
 
@@ -44,49 +44,57 @@ Para efectos de prueba use las siguientes credenciales para una autenticación c
 }
 ```
 
-## GET /cafes
+## GET /cars
 
-Este endpoint retorna un listado de cafés. Este es un ejemplo de la respuesta:
+Este endpoint retorna un listado de vehículos. Este es un ejemplo de la respuesta:
 
 ```JSON
 [
-    {
+   {
         "id": 1,
-        "nombre": "Café Especial para tí",
-        "tipo": "Blend",
-        "region": "Angelópolis, Antioquia"
+        "marca": "Renault",
+        "linea": "Kangoo",
+        "referencia": "VU Express",
+        "modelo": 2017,
+        "kilometraje": 93272,
+        "color": "Blanco",
+        "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/kangoo.jpeg?raw=true"
     },
     {
         "id": 2,
-        "nombre": "Café Especial Navegante",
-        "tipo": "Café de Origen",
-        "region": "Guatapé, Antioquia"
+        "marca": "Chevrolet",
+        "linea": "Spark",
+        "referencia": "Life",
+        "modelo": 2018,
+        "kilometraje": 55926,
+        "color": "Plata",
+        "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/spark.jpeg?raw=true"
     }
 ]
 ```
 
-## GET /cafes/_{{cafe_id}}_
+## GET /cars/_{{car_id}}_
 
-Este endpoint retorna el café con el id pasado como parámetro en el _path_. Este es un ejemplo de la respuesta:
+Este endpoint retorna el vehículo con el id pasado como parámetro en el _path_. Este es un ejemplo de la respuesta:
 
 ```JSON
 {
     "id": 1,
-    "nombre": "Café Especial para tí",
-    "tipo": "Blend",
-    "region": "Angelópolis, Antioquia",
-    "notas": "Panela, Durazno, Caramelo",
-    "fecha_cultivo": "2023-01-18",
-    "altura": 1920,
-    "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202310/p2_v1/cafe-especial-para-ti-cafe-colombiano_720x.png?raw=true"
+    "marca": "Renault",
+    "linea": "Kangoo",
+    "referencia": "VU Express",
+    "modelo": 2017,
+    "kilometraje": 93272,
+    "color": "Blanco",
+    "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/kangoo.jpeg?raw=true"
 }
 ```
 
-Si el café con el id proporcionado no existe retornará un _status code 404_ con la siguiente respuesta:
+Si el vehículo con el id proporcionado no existe retornará un _status code 404_ con la siguiente respuesta:
 
 ```JSON
 {
     "status": "error",
-    "message": "The coffe with the given id was not found."
+    "message": "The car with the given id was not found."
 }
 ```

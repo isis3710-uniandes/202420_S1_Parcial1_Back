@@ -1,72 +1,67 @@
 var express = require("express");
 var router = express.Router();
 
-const cafes = [
+const cars = [
   {
-    id: 1,
-    nombre: "Café Especial para tí",
-    tipo: "Blend",
-    region: "Angelópolis, Antioquia",
-    notas: "Panela, Durazno, Caramelo",
-    fecha_cultivo: "2023-01-18",
-    altura: 1920,
-    imagen:
-      "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202310/p2_v1/cafe-especial-para-ti-cafe-colombiano_720x.png?raw=true",
+      "id": 1,
+      "marca": "Renault",
+      "linea": "Kangoo",
+      "referencia": "VU Express",
+      "modelo": 2017,
+      "kilometraje": 93272,
+      "color": "Blanco",
+      "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/kangoo.jpeg?raw=true"
   },
   {
-    id: 2,
-    nombre: "Café Especial Navegante",
-    tipo: "Café de Origen",
-    region: "Guatapé, Antioquia",
-    notas: "Cítrico, Naranja, Cacao",
-    fecha_cultivo: "2023-02-10",
-    altura: 1800,
-    imagen:
-      "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202310/p2_v1/cafe-especial-navegante-cafe-colombiano-1_720x.png?raw=true",
+      "id": 2,
+      "marca": "Chevrolet",
+      "linea": "Spark",
+      "referencia": "Life",
+      "modelo": 2018,
+      "kilometraje": 55926,
+      "color": "Plata",
+      "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/spark.jpeg?raw=true"
   },
   {
-    id: 3,
-    nombre: "Café Especial El Poeta",
-    tipo: "Blend",
-    region: "Gómez Plata, Antioquia",
-    notas: "Notas Dulces, Vino y Frutos Rojos",
-    fecha_cultivo: "2023-03-11",
-    altura: 1800,
-    imagen:
-      "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202310/p2_v1/cafe-especial-poeta-cafe-colombiano_720x.png?raw=true",
+      "id": 3,
+      "marca": "Chevrolet",
+      "linea": "Sail",
+      "referencia": "LT Sedan",
+      "modelo": 2016,
+      "kilometraje": 94321,
+      "color": "Rojo",
+      "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/sail.jpeg?raw=true"
   },
   {
-    id: 4,
-    nombre: "Café Especial Valentina",
-    tipo: "Café de Origen",
-    region: "Fredonia, Antioquia",
-    notas: "Chocolate, Cáscara de limón, Nuez",
-    altura: 1700,
-    imagen:
-      "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202310/p2_v1/cafe-especial-valentina-cafe-colombiano_1_720x.png?raw=true",
+      "id": 4,
+      "marca": "Renault",
+      "linea": "Sandero",
+      "referencia": "New Authentique Life",
+      "modelo": 2020,
+      "kilometraje": 25629,
+      "color": "Rojo",
+      "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/sandero.jpeg?raw=true"
   },
   {
-    id: 5,
-    nombre: "Café Especial Sombrero Vueltiao",
-    tipo: "Café de Origen",
-    region: "Amagá, Antioquia",
-    notas: "Chocolate, Frutos secos, Frutos rojos, Caña de azúcar",
-    fecha_cultivo: "2023-04-12",
-    altura: 1450,
-    imagen:
-      "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202310/p2_v1/cafe-especal-sombrero-vueltiao-2-cafe-colombiano-f_720x.png?raw=true",
+      "id": 5,
+      "marca": "Nissan",
+      "linea": "March",
+      "referencia": "Active Plus",
+      "modelo": 2019,
+      "kilometraje": 31298,
+      "color": "Plata",
+      "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/march.jpeg?raw=true"
   },
   {
-    id: 6,
-    nombre: "Café Especial La Guacamaya",
-    tipo: "Café de Origen",
-    region: "Amagá, Antioquia",
-    notas: "Chocolate, Frutos Secos, Frutos Rojos y Caña de Azúcar",
-    fecha_cultivo: "2023-05-13",
-    altura: 1450,
-    imagen:
-      "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202310/p2_v1/cafe-especial-guacamayo2-cafe-colombiano-f_720x.png?raw=true",
-  },
+      "id": 6,
+      "marca": "Chevrolet",
+      "linea": "Tracker",
+      "referencia": "New LS",
+      "modelo": 2018,
+      "kilometraje": 37827,
+      "color": "Plata",
+      "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/tracker.jpeg?raw=true"
+  }
 ];
 
 /* Default route */
@@ -91,27 +86,27 @@ router.post("/login", function (req, res, next) {
   }
 });
 
-/* Get all cafes */
-router.get("/cafes", function (req, res, next) {
+/* Get all cars */
+router.get("/cars", function (req, res, next) {
   res.send(
-    cafes.map((c) => {
-      return { id: c.id, nombre: c.nombre, tipo: c.tipo, region: c.region };
+    cars.map((c) => {
+      return { id, marca, linea, modelo } = c;
     })
   );
 });
 
-/* Get one cafe */
-router.get("/cafes/:cafeId", function (req, res, next) {
-  const cafe = cafes.find((c) => {
-    return c.id == req.params.cafeId;
+/* Get one car */
+router.get("/cars/:carId", function (req, res, next) {
+  const car = cars.find((c) => {
+    return c.id == req.params.carId;
   });
-  if (!cafe) {
+  if (!car) {
     return res.status(404).send({
       status: "error",
-      message: "The coffe with the given id was not found.",
+      message: "The car with the given id was not found.",
     });
   }
-  res.send(cafe);
+  res.send(car);
 });
 
 module.exports = router;
