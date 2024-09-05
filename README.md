@@ -66,7 +66,7 @@ Este endpoint retorna un listado de robots. Este es un ejemplo de la respuesta:
 
 ```
 
-## GET /cars/_{{car_id}}_
+## GET /robots/_{{robot_id}}_
 
 Este endpoint retorna el robot con el id pasado como parámetro en el _path_. Este es un ejemplo de la respuesta:
 
@@ -78,7 +78,8 @@ Este endpoint retorna el robot con el id pasado como parámetro en el _path_. Es
     "empresaFabricante": "Robotico Corp",
     "añoFabricacion": 2023,
     "capacidadProcesamiento": "2.5 GHz",
-    "humor": "Como un perrito pequeño, siempre buscando atención y moviendo su 'cola' robótica"
+    "humor": "Como un perrito pequeño, siempre buscando atención y moviendo su 'cola' robótica",
+    "imagen": "https://github.com/isis3710-uniandes/202410_S1_Parcial1_Back/blob/master/images/robot1.png"
 }
 
 ```
