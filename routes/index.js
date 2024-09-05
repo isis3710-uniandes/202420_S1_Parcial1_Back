@@ -1,66 +1,61 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
-const cars = [
+const robots = [
   {
       "id": 1,
-      "marca": "Renault",
-      "linea": "Kangoo",
-      "referencia": "VU Express",
-      "modelo": 2017,
-      "kilometraje": 93272,
-      "color": "Blanco",
-      "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/kangoo.jpeg?raw=true"
+      "nombre": "Pedrito",
+      "modelo": "PR-001",
+      "empresaFabricante": "Robotico Corp",
+      "añoFabricacion": 2023,
+      "capacidadProcesamiento": "2.5 GHz",
+      "humor": "Como un perrito pequeño, siempre buscando atención y moviendo su 'cola' robótica",
+      "imagen": ""
   },
   {
       "id": 2,
-      "marca": "Chevrolet",
-      "linea": "Spark",
-      "referencia": "Life",
-      "modelo": 2018,
-      "kilometraje": 55926,
-      "color": "Plata",
-      "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/spark.jpeg?raw=true"
+      "nombre": "IronChef",
+      "modelo": "IC-3000",
+      "empresaFabricante": "RoboCocina Inc.",
+      "añoFabricacion": 2021,
+      "capacidadProcesamiento": "3.2 GHz",
+      "humor": "Fanático de la cocina, siempre bromeando con chistes de comida y recomendando recetas"
   },
   {
       "id": 3,
-      "marca": "Chevrolet",
-      "linea": "Sail",
-      "referencia": "LT Sedan",
-      "modelo": 2016,
-      "kilometraje": 94321,
-      "color": "Rojo",
-      "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/sail.jpeg?raw=true"
+      "nombre": "Chispita",
+      "modelo": "LT-007",
+      "empresaFabricante": "SparkBots Ltd.",
+      "añoFabricacion": 2020,
+      "capacidadProcesamiento": "1.8 GHz",
+      "humor": "Alegre y juguetón, con comportamiento como un gatito curioso"
   },
   {
       "id": 4,
-      "marca": "Renault",
-      "linea": "Sandero",
-      "referencia": "New Authentique Life",
-      "modelo": 2020,
-      "kilometraje": 25629,
-      "color": "Rojo",
-      "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/sandero.jpeg?raw=true"
+      "nombre": "SeñorCalculín",
+      "modelo": "MC-808",
+      "empresaFabricante": "Mathematrix Solutions",
+      "añoFabricacion": 2022,
+      "capacidadProcesamiento": "4.0 GHz",
+      "humor": "Serio pero sarcástico, con chistes de matemáticas"
   },
   {
       "id": 5,
-      "marca": "Nissan",
-      "linea": "March",
-      "referencia": "Active Plus",
-      "modelo": 2019,
-      "kilometraje": 31298,
-      "color": "Plata",
-      "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/march.jpeg?raw=true"
+      "nombre": "DoctoraBot",
+      "modelo": "HL-9000",
+      "empresaFabricante": "MediTech Industries",
+      "añoFabricacion": 2024,
+      "capacidadProcesamiento": "3.8 GHz",
+      "humor": "Doctora estricta con humor seco, siempre recordando que te laves las manos"
   },
   {
       "id": 6,
-      "marca": "Chevrolet",
-      "linea": "Tracker",
-      "referencia": "New LS",
-      "modelo": 2018,
-      "kilometraje": 37827,
-      "color": "Plata",
-      "imagen": "https://github.com/Uniandes-isis2603/recursos-isis2603/blob/master/images/202410/tracker.jpeg?raw=true"
+      "nombre": "ZumbaTron",
+      "modelo": "ZT-2025",
+      "empresaFabricante": "DanceTech Co.",
+      "añoFabricacion": 2025,
+      "capacidadProcesamiento": "2.9 GHz",
+      "humor": "Energético amante del baile, siempre motivando a moverse"
   }
 ];
 
@@ -86,27 +81,27 @@ router.post("/login", function (req, res, next) {
   }
 });
 
-/* Get all cars */
-router.get("/cars", function (req, res, next) {
+/* Get all robots */
+router.get("/robots", function (req, res, next) {
   res.send(
-    cars.map((c) => {
-      return { id, marca, linea, modelo } = c;
+    robots.map((r) => {
+      return { id, nombre, modelo, empresaFabricante } = r;
     })
   );
 });
 
-/* Get one car */
-router.get("/cars/:carId", function (req, res, next) {
-  const car = cars.find((c) => {
-    return c.id == req.params.carId;
+/* Get one robot */
+router.get("/robots/:robotId", function (req, res, next) {
+  const robot = robots.find((r) => {
+    return r.id == req.params.robotId;
   });
-  if (!car) {
+  if (!robot) {
     return res.status(404).send({
       status: "error",
-      message: "The car with the given id was not found.",
+      message: "The robot with the given id was not found.",
     });
   }
-  res.send(car);
+  res.send(robot);
 });
 
 module.exports = router;
